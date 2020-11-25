@@ -2,21 +2,62 @@
 # R11424503
 
 # Provides access to any command-line arguments via the sys.argv 
-import sys
+import sys, getopt
 
 
-def main():
+def main(argv):
 	print("Project :: R11424503\n")
+	
+	# Set user args
+	inputfile = ''
+	outputfile = ''
+
+	try:
+  		opts, args = getopt.getopt(argv,"hi:o:", ["ifile=", "ofile="])
+	except getopt.GetoptError:
+		print ('test.py -i <inputfile> -o <outputfile>')
+		sys.exit(2)
+	for opt, arg in opts:
+		if opt == '-h':
+				print ('main.py -i <inputfile> -o <outputfile>')
+				sys.exit()
+		elif opt in ("-i", "--ifile"):
+				inputfile = arg
+		elif opt in ("-o", "--ofile"):
+				outputfile = arg
+	
+	print ('Input file is: ', inputfile)
+	print ('Output file is: ', outputfile)
+
+
+	# Open if exists, if not error
+	try:
+		f = open(inputfile)
+		# Read a matrix from a file 
+		f.read()
+    
+		f.close()
+
+	# If file path DNE error
+	except FileNotFoundError:
+		print("File does not exist")
+	
+	# Write the matrix into a file
+	try:
+		with open(outputfile, 'w') as f:
+			f.write(outputfile)
+	
+	# If file path DNE error
+	except DirNotFoundError:
+		print("Directory does not exist")
 
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1:])
 
 
 #TODO:
-
-# Read a matrix from a file 
-# Write the matrix into a file 
+# Read only O's and .'s else error
 
 # Validate user args
 # get -> define -> retrieve
