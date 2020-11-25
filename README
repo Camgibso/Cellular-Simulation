@@ -1,0 +1,29 @@
+Document Progress
+- Validate user args
+    1. Set
+    2. Define
+    3. Retrieve
+- Read a matrix from the file
+    - Req: Entire file path must exist, otherwise error
+    - Files containing symbols not periods, capital O’s, 
+    and newline characters are considered invalid.
+- Write a matrix into a file
+    - Req: Directory must exist
+
+#TODO:
+# Read only O's and .'s else error
+
+# Validate user args
+# get -> define -> retrieve
+
+# If an “alive” square has exactly two, three, or four 
+living neighbors, then it continues to be “alive” in the 
+next time step.
+
+# If a “dead” square has an even number greater than 0 living 
+neighbors, then it will be “alive” in the next time step.
+
+# Every other square dies or remains dead, causing it to be 
+“dead” in the next time step.
+
+python3 main.py -i matrix.txt -o outfile.txt -t 4
