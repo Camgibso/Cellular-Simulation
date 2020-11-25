@@ -1,5 +1,7 @@
 # Cameron Gibson
 # R11424503
+# Example terminal input: 
+#python3 main.py -i matrix.txt -o outfile.txt -t 4
 
 import sys, getopt
 
@@ -7,7 +9,7 @@ def parseCommandLine(argv=[]):
     argv = argv[1:]
     inputFile = ''
     outputFile = ''
-	# Default = 1
+    # Set Default = 1
     threadNum = '1'	
 
     try:
@@ -29,36 +31,39 @@ def parseCommandLine(argv=[]):
             outputFile = arg 
         elif opt in ("-t", "--threadNum"):
             threadNum = int(arg) 
-        
-    print ('Input file is: ', inputFile)
-    print ('Output file is: ', outputFile)
-    print ('Thread Number is: ', threadNum)
-	#return(inputFile)
+
+    return inputFile, outputFile, threadNum
 
 
 def main():
-	parseCommandLine(sys.argv)
-	#print("Returned: ", inputFile)
-	#try:
-	#	f = open(inputfile)
-		# Read a matrix from a file 
-	#	f.read(inputfile)
+    inputFile, outputFile, threadNum = parseCommandLine(sys.argv)
+    print ('Input file is   :', inputFile)
+    print ('Output file is  :', outputFile)
+    print ('Thread Number is:', threadNum)
     
-	#	f.close()
+    try:
+    	f = open(inputFile)
+        # Read a matrix from a file 
 
-	# If file path DNE error
-	#except FileNotFoundError:
-	#	print("File does not exist")
-	
-	# Write the matrix into a file
-	#try:
-	#	with open(outputfile, 'w') as f:
-	#		f.write(outputfile)
-	
-	# If file path DNE error
-	#except NotADirectoryError:
-	#	print("Directory does not exist")
+    #TODO:
+    # search python f.read TypeError: argument should be integer or None, not 'str'
+    	#f.read(inputFile)
+
+    	f.close()
+
+    # If file path DNE error
+    except FileNotFoundError:
+    	print("File does not exist")
+    
+    # Write the matrix into a file
+    try:
+    	with open(outputFile, 'w') as f:
+    		f.write(outputFile)
+    
+    # If file path DNE error
+    except NotADirectoryError:
+    	print("Directory does not exist")
 
 # For repl.it
 if __name__ == '__main__':
-	main()
+    main()
