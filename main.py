@@ -45,7 +45,7 @@ def main():
 		f = open(inputFile)
 		# Read the file into lines
 		lines = f.readlines()
-		print (lines)
+		print ("File Contents:", lines)
 		# Read a matrix from a file 
 
 	#TODO:
@@ -61,7 +61,8 @@ def main():
 	# Write the matrix into a file
 	try:
 		with open(outputFile, 'w') as f:
-			f.write("help me")
+			i = str(lines)
+			f.write(i)
 	
 	# If file path DNE error
 	except NotADirectoryError:
