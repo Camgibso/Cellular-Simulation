@@ -36,6 +36,7 @@ def parseCommandLine(argv=[]):
 
 
 def main():
+	print("Program :: R11424503")
 	inputFile, outputFile, threadNum = parseCommandLine(sys.argv)
 	print ('Input file is   :', inputFile)
 	print ('Output file is  :', outputFile)
@@ -46,12 +47,14 @@ def main():
 		# Read the file into lines
 		lines = f.readlines()
 		print ("File Contents:", lines)
+		# print (type(lines[1]))
+		
+		# lines is a List of strings
 		# Read a matrix from a file 
 
 	#TODO:
 	# search python f.read TypeError: argument should be integer or None, not 'str'
-		#f.read(inputFile)
-
+		#f.read(i)
 		f.close()
 
 	# If file path DNE error
