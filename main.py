@@ -9,7 +9,7 @@ def parseCommandLine(argv=[]):
 	argv = argv[1:]
 	inputFile = ''
 	outputFile = ''
-	# Set Default = 1
+	# Set Default to 1
 	threadNum = '1'	
 
 	try:
