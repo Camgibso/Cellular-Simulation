@@ -81,12 +81,12 @@ def find_neighbor(cell, currentCol):
 
 	# Checking conditions for if cell should be alive on given rules
 	if cell == 'O' and (2 == nAlive or 3 == nAlive or nAlive == 4):
-		char_val = 'O'
+		status = 'O'
 	elif cell == '.'and nAlive % 2 == 0 and nAlive > 0 :
-		char_val = 'O'
+		status = 'O'
 	else:
-		char_val = '.'
-	return char_val
+		status = '.'
+	return status
 
 # Append the row in the matrix and return a string
 def matrixToString(array):
@@ -115,19 +115,18 @@ def main():
 	# Open the input file and start reading it
 	try:
 		with open(inputFile) as f:
-			print ("Time Step #0: ")
+			print("Time Step #0: ")
 			for line in f:
-				print (line, end="")
-			f.seek (0)
+				print(line, end="")
+			f.seek(0)
 			fileArray = pool.map(readLine, f)
 	except FileNotFoundError:
 		print("File does not exist")
 		sys.exit()
-
 	print("\n")
-	rows = len(fileArray)
 
 	# Simulate the next 100 steps by checking cell
+	rows = len(fileArray)
 	tempArray = tempMatrix(fileArray) 
 	for _ in range(99):
 		tempArray = pool.map(simulation, tempArray)
