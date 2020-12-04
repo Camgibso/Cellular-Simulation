@@ -89,9 +89,9 @@ def find_neighbor(cell, currentCol):
 	return status
 
 # Append the row in the matrix and return a string
-def matrixToString(array):
+def matrixToString(matrix):
 	global columns, fileArray
-	fileArray = array
+	fileArray = matrix
 	columns = len(fileArray[0])
 	# Read into a string
 	finalString = ''
@@ -103,7 +103,7 @@ def matrixToString(array):
 
 
 def main():
-	global fileArray, rows
+	global fileArray, rows, columns
 
 	# Parse the command line arguments
 	inputFile, outputFile, threadNum = parseCommandLine(sys.argv)
@@ -120,20 +120,20 @@ def main():
 				print(line, end="")
 			f.seek(0)
 			fileArray = pool.map(readLine, f)
+			print("\n")
 	except FileNotFoundError:
 		print("File does not exist")
 		sys.exit()
-	print("\n")
 
 	# Simulate the next 100 steps by checking cell
 	rows = len(fileArray)
-	tempArray = tempMatrix(fileArray) 
+	joinArray = tempMatrix(fileArray) 
 	for _ in range(99):
-		tempArray = pool.map(simulation, tempArray)
-		tempArray = tempMatrix(tempArray)
+		joinArray = pool.map(simulation, joinArray)
+		joinArray = tempMatrix(joinArray)
 	# Convert to string
-	tempArray = pool.map(matrixToString, tempArray)
-	finalString = ''.join(tempArray)
+	joinArray = pool.map(matrixToString, joinArray)
+	finalString = ''.join(joinArray)
 	
 	# Create an output file with the given arg as its name
 	try:
