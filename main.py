@@ -1,7 +1,7 @@
 # Cameron Gibson | Final Project
 # R11424503
 # Example terminal input: 
-# python3 main.py -i matrix.txt -o outfile.txt -t 4
+# python3 main.py -i matrix.txt -o outfile.txt -t 1
 
 # Imports and Globals
 import multiprocessing
