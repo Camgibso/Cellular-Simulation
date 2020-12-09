@@ -34,3 +34,29 @@ and path is dictated by a separate command line argument. These files must
 contain a copy of your matrix with each row of the matrix printed on separate 
 lines and no characters in between the columns. Example files are provided as 
 part of the project.
+
+-------------------------------------------------------------------------------------------------
+You are tasked with creating a program capable of executing the first 100 steps of a modified cellular life simulator. 
+This simulator will receive the path to the input file as an argument containing the starting cellular matrix.  
+The program must then simulate the next 100 time-steps based on the algorithm discussed in the attached document.  
+The simulation is guided by a handful of simplistic rules that will result in a seemingly complex simulation of cellular organisms.
+
+This project will be accepted up to 2 days late - not 3 days.  All submissions must be turned in by end of day 12/4.
+
+Grading program has been added to Quanah.  To test your program, do the following:
+
+Log into quanah.hpcc.ttu.edu
+Change directory (cd) to the directory with your final project python file. Make sure you named it correctly.
+Run the grading script:     /lustre/scratch/errees/cs3361/project/grader.sh
+Enter your email
+Select which test you want to run:
+Serial test will run a single 100x100 matrix on a single thread then report results (Normally runs in <15 minutes)
+Parallel test will run the same 100x100 matrix with 1, 2, 4, 8, 16, and 32 threads/processes then report results (Normally runs and completes within 2 hours)
+Full Grader will run the following tests then report the results (Normally runs and completed within 48 hours - though should be <12 hours).
+100x100 matrix with 1, 2, 4, 8, 16, and 32 threads/processes.
+1000x1000 matrix with 1, 2, 4, 8, 16, and 32 threads/processes.
+10000x10000 matrix with 9, 18, and 36 threads/processes.
+You will receive an email when your program begins running in the cluster.
+You will receive another email when your program completes running in the cluster.
+Once you get the email stating it is complete, run the "cat" command given by the script when you ran it.
+This will print out what R# was detected for you, whether your program passed each test case (got correct final output) and how long each test case took (in seconds).
