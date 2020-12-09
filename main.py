@@ -1,5 +1,4 @@
-# Cameron Gibson | Final Project
-# R11424503
+# Cameron Gibson 
 # Example terminal input: 
 # python3 main.py -i matrix.txt -o outfile.txt -t 1
 
@@ -147,7 +146,6 @@ def main():
 
 
 if __name__ == "__main__":
-	print("Program :: R11424503")
 	start_time = time.time()
 	main()
 	print("Execution Time:", (time.time() - start_time), "secounds")
